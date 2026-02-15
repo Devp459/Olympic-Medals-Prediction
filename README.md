@@ -202,11 +202,6 @@ Download `teams.csv` directly and skip to [Running the Model](#running-the-predi
    - Download `teams.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
    - In Colab, click the folder icon (📁) in the left sidebar
    - Click the upload button and select `teams.csv`
-   - Or use this code cell to upload:
-   ```python
-   from google.colab import files
-   uploaded = files.upload()
-   ```
 
 3. **Run the analysis**
    - Click `Runtime → Run all` to execute all cells
