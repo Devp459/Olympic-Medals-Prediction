@@ -2,10 +2,6 @@
 
 A machine learning project that predicts Olympic medal counts for participating countries using historical performance data, team composition, and athlete statistics.
 
-<!-- IMAGE PLACEHOLDER: Add project banner/hero image here -->
-<!-- Suggested: A visualization showing predictions vs actual medals for top countries -->
-![Project Banner](./images/banner.png)
-
 ## 📋 Table of Contents
 - [Overview](#overview)
 - [Key Features](#key-features)
@@ -14,7 +10,6 @@ A machine learning project that predicts Olympic medal counts for participating 
 - [Models & Results](#models--results)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Project Structure](#project-structure)
 - [Key Insights](#key-insights)
 - [Future Improvements](#future-improvements)
 - [Acknowledgments](#acknowledgments)
@@ -32,10 +27,6 @@ A comprehensive machine learning pipeline featuring:
 - Multiple model comparison (Linear Regression, Random Forest, Gradient Boosting)
 - Robust evaluation with cross-validation
 - Detailed error analysis and insights
-
-<!-- IMAGE PLACEHOLDER: Add workflow diagram here -->
-<!-- Suggested: A flowchart showing data → feature engineering → model training → evaluation -->
-![Workflow](./images/workflow.png)
 
 ## ✨ Key Features
 
@@ -101,9 +92,28 @@ team_efficiency = prev_medals / (athletes + 1)  # Success rate
 - Tested on 2016 Olympics (out-of-sample)
 - Analyzed errors by performance category (no medals, 1-5, 6-20, 21-50, 50+)
 
-<!-- IMAGE PLACEHOLDER: Add feature importance chart here -->
-<!-- Suggested: Horizontal bar chart of top 10 features -->
-![Feature Importance](./images/feature_importance.png)
+## 📊 Data Exploration & Analysis
+
+### Correlation Analysis
+
+The correlation heatmap reveals strong relationships between features, with historical medal counts (`prev_medals`, `prev_3_medals`) showing the highest correlation with medal outcomes:
+
+<img width="787" height="599" alt="image" src="https://github.com/user-attachments/assets/6472b505-083d-4e96-88fb-adc23c7f66d2" />
+
+
+### Medal Distribution
+
+The distribution shows that most countries win few or no medals, with a long tail of high-performing nations:
+
+<img width="556" height="371" alt="image" src="https://github.com/user-attachments/assets/9bfab6b7-9dab-4722-97db-f0825a52f8bc" />
+
+
+### Trends Over Time
+
+Medal counts have remained relatively stable across decades, though the variance has increased as more countries participate:
+
+<img width="547" height="374" alt="image" src="https://github.com/user-attachments/assets/80d809e0-b5d2-4b7f-b5c6-71cecf9e86b6" />
+
 
 ## 📈 Models & Results
 
@@ -117,11 +127,12 @@ team_efficiency = prev_medals / (athletes + 1)  # Success rate
 
 **Key Takeaway**: Ensemble methods reduce prediction error by ~40% compared to linear regression!
 
-<!-- IMAGE PLACEHOLDER: Add predictions vs actual scatter plot here -->
-<!-- Suggested: Scatter plot with perfect prediction line -->
-![Predictions vs Actual](./images/predictions_scatter.png)
-
 ### Top Feature Importance
+
+Understanding which features drive predictions is crucial. The Gradient Boosting model reveals:
+
+<img width="737" height="582" alt="image" src="https://github.com/user-attachments/assets/1e9263df-9c2f-4fad-ab2a-be587e74b174" />
+
 
 1. **prev_medals** (35-40%) - Historical performance is the strongest predictor
 2. **athletes** (15-20%) - Larger teams tend to win more medals
@@ -139,74 +150,46 @@ team_efficiency = prev_medals / (athletes + 1)  # Success rate
 | Russia | 121 | 128 | 7 |
 | Germany | 81 | 86 | 5 |
 
-<!-- IMAGE PLACEHOLDER: Add error distribution histogram here -->
-<!-- Suggested: Histogram of prediction errors with normal curve overlay -->
-![Error Distribution](./images/error_distribution.png)
-
 ## 🚀 Installation
 
-### Prerequisites
-- Python 3.8+
-- pip package manager
+### Google Colab (Recommended) ⭐
 
-### Setup
+**No installation needed!** Simply click the badge below to open the notebook directly in Google Colab:
 
-1. **Clone the repository**
-```bash
-git clone https://github.com/[YOUR_USERNAME]/olympic-medal-predictions.git
-cd olympic-medal-predictions
-```
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/[YOUR_USERNAME]/olympic-medal-predictions/blob/main/improved_olympic_predictions.ipynb)
 
-2. **Install required packages**
-```bash
-pip install -r requirements.txt
-```
-
-Or install manually:
-```bash
-pip install pandas numpy scikit-learn matplotlib seaborn jupyter
-```
-
-3. **Download the dataset**
-- Download `teams.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
-- Place it in the project root directory
+All required libraries are pre-installed in Google Colab. This is the easiest and recommended way to run this project!
 
 ## 💻 Usage
 
-### Running the Improved Model
+### Running in Google Colab (Recommended)
 
-1. **Launch Jupyter Notebook**
-```bash
-jupyter notebook improved_olympic_predictions.ipynb
-```
+1. **Open the notebook**
+   - Click the "Open in Colab" badge above
+   - Sign in with your Google account
 
-2. **Run all cells**
-   - The notebook will automatically:
-     - Load and preprocess data
-     - Engineer features
-     - Train three models
-     - Compare performance
-     - Generate visualizations
-     - Save predictions to `2016_predictions.csv`
+2. **Upload the dataset**
+   - Download `teams.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
+   - In Colab, click the folder icon (📁) in the left sidebar
+   - Click the upload button and select `teams.csv`
+   - Or use this code cell to upload:
+   ```python
+   from google.colab import files
+   uploaded = files.upload()
+   ```
 
-### Quick Start
-```python
-import pandas as pd
-from sklearn.ensemble import GradientBoostingRegressor
+3. **Run the analysis**
+   - Click `Runtime → Run all` to execute all cells
+   - Or run cells individually with `Shift + Enter`
 
-# Load data
-teams = pd.read_csv('teams.csv')
-
-# Feature engineering (see notebook for full implementation)
-# ... create engineered features ...
-
-# Train model
-model = GradientBoostingRegressor(n_estimators=200, max_depth=5, learning_rate=0.05)
-model.fit(X_train, y_train)
-
-# Predict
-predictions = model.predict(X_test)
-```
+4. **The notebook will automatically:**
+   - Load and explore the dataset
+   - Create visualizations and correlation analysis
+   - Engineer features
+   - Train three models (Linear Regression, Random Forest, Gradient Boosting)
+   - Compare model performance
+   - Evaluate predictions and generate insights
+   - Save results to `2016_predictions.csv`
 
 ### Expected Output
 - `2016_predictions.csv` - Predicted medal counts for all countries
@@ -216,34 +199,6 @@ predictions = model.predict(X_test)
   - Predictions vs actual scatter plot
   - Error distribution histogram
   - Error analysis by performance category
-
-<!-- IMAGE PLACEHOLDER: Add sample notebook output here -->
-<!-- Suggested: Screenshot of key visualizations from notebook -->
-![Sample Output](./images/notebook_output.png)
-
-## 📂 Project Structure
-
-```
-olympic-medal-predictions/
-│
-├── teams.csv                              # Dataset (download from Kaggle)
-├── improved_olympic_predictions.ipynb     # Main analysis notebook
-├── olympic_medal_project.ipynb            # Original baseline model
-├── improvements_summary.md                # Detailed improvement documentation
-├── README.md                              # This file
-├── requirements.txt                       # Python dependencies
-│
-├── images/                                # Visualizations and charts
-│   ├── banner.png
-│   ├── workflow.png
-│   ├── feature_importance.png
-│   ├── predictions_scatter.png
-│   ├── error_distribution.png
-│   └── notebook_output.png
-│
-└── results/                               # Output files
-    └── 2016_predictions.csv              # Generated predictions
-```
 
 ## 💡 Key Insights
 
@@ -279,10 +234,6 @@ olympic-medal-predictions/
 - Countries affected by doping scandals or political boycotts
 - Very small teams (high variance, "lucky" medals)
 
-<!-- IMAGE PLACEHOLDER: Add performance by category chart here -->
-<!-- Suggested: Box plot showing error distribution across medal categories -->
-![Performance by Category](./images/performance_category.png)
-
 ## 🔮 Future Improvements
 
 ### Potential Enhancements
@@ -312,13 +263,15 @@ olympic-medal-predictions/
    - [ ] API for accessing predictions
    - [ ] Dashboard with country comparisons
 
-## 🛠️ Technical Stack
+## 🛠️ Technologies Used
 
-- **Python 3.8+**
-- **Data Processing**: pandas, numpy
-- **Machine Learning**: scikit-learn
-- **Visualization**: matplotlib, seaborn
-- **Environment**: Jupyter Notebook
+* **Google Colab** (Recommended - Cloud-based Jupyter notebook environment)
+* **Python 3.x**
+* **NumPy** - Numerical computations
+* **Pandas** - Data manipulation and analysis
+* **Matplotlib** - Data visualization
+* **Seaborn** - Statistical visualizations
+* **scikit-learn** - Machine learning implementation (Linear Regression, Random Forest, Gradient Boosting)
 
 ## 📚 Acknowledgments
 
@@ -336,10 +289,6 @@ olympic-medal-predictions/
 For major sporting nations (50+ medals), predictions are typically within **5-10 medals** of actual results. For smaller countries, the model provides reliable probability estimates for medal-winning potential.
 
 ---
-
-<!-- IMAGE PLACEHOLDER: Add final summary visualization here -->
-<!-- Suggested: Infographic showing key metrics and improvements -->
-![Results Summary](./images/results_summary.png)
 
 **⭐ If you found this project useful, please consider giving it a star!**
 
