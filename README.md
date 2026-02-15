@@ -85,12 +85,9 @@ Before building prediction models, raw athlete-level data must be transformed in
 
 ## Running the Preprocessing Notebook:
 
-[![Open Preprocessing In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/[YOUR_USERNAME]/olympic-medal-predictions/blob/main/data_preprocessing.ipynb)
-
-1. Click the badge above
-2. Upload `athlete_events.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
-3. Run all cells
-4. Download the generated `teams.csv`
+1. Upload `athlete_events.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
+2. Run all cells
+3. Download the generated `teams.csv`
 
 **Note**: If you just want to build models, you can skip this step and use the pre-generated `teams.csv` file directly.
 
@@ -182,12 +179,7 @@ Understanding which features drive predictions is crucial. The Gradient Boosting
 
 ### Google Colab (Recommended) ⭐
 
-**No installation needed!** Simply click the badge below to open the notebook directly in Google Colab:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Devp459/olympic-medal-predictions/blob/main/improved_olympic_predictions.ipynb)
-
-*Data Preprocessing:**  
-[![Open Preprocessing In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Devp459/olympic-medal-predictions/blob/main/data_preprocessing.ipynb)
+**No installation needed!** Simply open the notebook directly in Google Colab:
 
 All required libraries are pre-installed in Google Colab. This is the easiest and recommended way to run this project!
 
