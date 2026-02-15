@@ -288,10 +288,4 @@ All required libraries are pre-installed in Google Colab. This is the easiest an
 
 For major sporting nations (50+ medals), predictions are typically within **5-10 medals** of actual results. For smaller countries, the model provides reliable probability estimates for medal-winning potential.
 
----
-
-**⭐ If you found this project useful, please consider giving it a star!**
-
----
-
 *This project is for educational and portfolio demonstration purposes. Predictions are based on historical patterns and do not account for all real-world factors affecting Olympic performance.*
