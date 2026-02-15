@@ -23,6 +23,7 @@ Can we accurately predict how many medals a country will win at the Olympics bas
 
 ### Solution
 A comprehensive machine learning pipeline featuring:
+- Raw data preprocessing and aggregation
 - Advanced feature engineering
 - Multiple model comparison (Linear Regression, Random Forest, Gradient Boosting)
 - Robust evaluation with cross-validation
@@ -65,6 +66,33 @@ A comprehensive machine learning pipeline featuring:
 - `prev_3_medals`: Average medals over previous 3 Olympics
 
 **Dataset Size**: 2,144 team-year observations across 52 years
+
+## 📊 Data Preprocessing
+
+Before building prediction models, raw athlete-level data must be transformed into team-level features. We provide a comprehensive preprocessing notebook that:
+
+### Transformation Pipeline
+
+**Input**: `athlete_events.csv` (271,116 individual athlete records)  
+**Output**: `teams.csv` (2,144 team-year observations)
+
+### Key Processing Steps:
+
+1. **Filter Summer Olympics** - Focus on Summer games for consistency
+2. **Aggregate to Team Level** - Transform athlete records into team statistics
+3. **Calculate Historical Features** - Create lagged performance metrics
+4. **Handle Missing Data** - Fill values for first-time participants
+
+## Running the Preprocessing Notebook:
+
+[![Open Preprocessing In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/[YOUR_USERNAME]/olympic-medal-predictions/blob/main/data_preprocessing.ipynb)
+
+1. Click the badge above
+2. Upload `athlete_events.csv` from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results)
+3. Run all cells
+4. Download the generated `teams.csv`
+
+**Note**: If you just want to build models, you can skip this step and use the pre-generated `teams.csv` file directly.
 
 ## 🔬 Methodology
 
@@ -156,13 +184,23 @@ Understanding which features drive predictions is crucial. The Gradient Boosting
 
 **No installation needed!** Simply click the badge below to open the notebook directly in Google Colab:
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/[YOUR_USERNAME]/olympic-medal-predictions/blob/main/improved_olympic_predictions.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Devp459/olympic-medal-predictions/blob/main/improved_olympic_predictions.ipynb)
+
+*Data Preprocessing:**  
+[![Open Preprocessing In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/Devp459/olympic-medal-predictions/blob/main/data_preprocessing.ipynb)
 
 All required libraries are pre-installed in Google Colab. This is the easiest and recommended way to run this project!
 
 ## 💻 Usage
 
 ### Running in Google Colab (Recommended)
+
+### Two Ways to Get Started:
+
+#### Option A: Use Pre-processed Data (Quickest)
+Download `teams.csv` directly and skip to [Running the Model](#running-the-prediction-model)
+
+#### Option B: Process Raw Data Yourself
 
 1. **Open the notebook**
    - Click the "Open in Colab" badge above
